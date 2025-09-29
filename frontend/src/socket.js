@@ -1,7 +1,7 @@
 import { io } from "socket.io-client";
 
 // ✅ Your deployed backend URL
-const SOCKET_URL = import.meta.env.VITE_BACKEND_URL;
+const SOCKET_URL = "https://live-polling-system-yoem.onrender.com";
 
 
 const socket = io(SOCKET_URL, {
