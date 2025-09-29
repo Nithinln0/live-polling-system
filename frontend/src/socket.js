@@ -1,6 +1,7 @@
-import { io } from 'socket.io-client';
+import { io } from "socket.io-client";
 
-const SOCKET_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5001';
+// ✅ Your deployed backend URL
+const SOCKET_URL = "https://live-polling-system-yoem.onrender.com";
 
 const socket = io(SOCKET_URL, {
   autoConnect: true,
@@ -9,17 +10,17 @@ const socket = io(SOCKET_URL, {
   reconnectionDelay: 1000,
 });
 
-// Add connection status logging
-socket.on('connect', () => {
-  console.log('Connected to server with ID:', socket.id);
+// Connection status logging
+socket.on("connect", () => {
+  console.log("✅ Connected to server with ID:", socket.id);
 });
 
-socket.on('disconnect', (reason) => {
-  console.log('Disconnected from server:', reason);
+socket.on("disconnect", (reason) => {
+  console.log("❌ Disconnected from server:", reason);
 });
 
-socket.on('connect_error', (error) => {
-  console.error('Connection error:', error);
+socket.on("connect_error", (error) => {
+  console.error("⚠️ Connection error:", error);
 });
 
 export default socket;
